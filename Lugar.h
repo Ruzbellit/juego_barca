@@ -53,7 +53,7 @@ class Lugar
      */
     virtual bool agregarIndividuo(Individuo* elIndividuo);
 
-    /**
+    /** TODO: renombrar por borrarIndividuo
      * @brief verifica que el individuo esta en el lugar y lo borra 
      * @param elIndividuo (el individuo que queremos sacar)
      */
@@ -96,8 +96,6 @@ class Lugar
      */
     virtual bool estaElIndividuo(Individuo* individuo);
 
-
-    // TODO: elimintar este método, es de pruebas
     /**
      * @brief busca elnombre en todos sus individuos contenidos 
      * @return el nombre de todos sus individuos 
@@ -105,13 +103,11 @@ class Lugar
     virtual string mostrarIndividuosContenidos();
 
     /**
-     * @brief muestra el individuo en cierta posicion
+     * @brief devuelve el nombre del individuo que esta en cierta posicion
      * @param posicion (elnumero de la posicion donde esta el individuo)
-     * @return el individuo que esta en la posicion indicada  
+     * @return el nombre individuo que esta en la posicion indicada
      */
-    virtual Individuo* sacarIndividuoEnPosicion(int posicion);
-
-
+    virtual string nombreIndividuoEnPosicion(int posicion);
 
 };
 #else

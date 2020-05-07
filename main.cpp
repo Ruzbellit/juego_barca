@@ -24,8 +24,8 @@ int main()
 {
   vector<Individuo*> listaDeIndividuos;
 
-  Individuo robot("Robot");
-  Individuo zorro("Zorro");
+  Individuo robot("Robot ");
+  Individuo zorro("Zorro ");
   Individuo conejo("Conejo");
   Individuo lechuga("Lechuga");
 
@@ -40,12 +40,7 @@ int main()
   Jugador jugador(listaDeIndividuos);
 
   jugador.jugar();
-  jugador.imprimirOpciones();
-  // jugador.desplazarBarca();
-  jugador.mostrarEstadoJuego();
-
-
-
+  
 //   cout << "El vecino inicial de barca es:" << barca.decirVecino() << endl;
 //   barca.desplazarse();
 //   cout << "Prueba que la barca no se movio :" << barca.decirVecino() << endl;

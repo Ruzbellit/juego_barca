@@ -32,34 +32,46 @@ Jugador::~Jugador()
  //destruir puntero
 }
 
+/**
+ * TODO: Corregir tabulaciones
+ */
 void Jugador::mostrarEstadoJuego()
 {
-
   string lugares = "| " + orillaIzquierda->decirNombre() + "\t\t| " + orillaIzquierda->decirVecino()  + "\t\t| " +  orillaDerecha->decirVecino() + "\t\t| " + orillaDerecha->decirNombre() + "\t\t|\n";
+  string posicionIndividuos = "";
 
-  cout << lugares << endl;
+  for (int i = 0; i < individuos.size(); i++)
+  {
+    posicionIndividuos += "| " + orillaIzquierda->nombreIndividuoEnPosicion(i) + "\t\t| ";
+    if (orillaIzquierda->decirVecino() == "Barca ")
+    {
+      posicionIndividuos += barca->nombreIndividuoEnPosicion(i) + "\t\t\t| " + "\t\t\t| ";
+    } else
+    {
+      posicionIndividuos += "\t\t\t| " + barca->nombreIndividuoEnPosicion(i) + "\t\t\t| ";
+    }
+    posicionIndividuos += orillaDerecha->nombreIndividuoEnPosicion(i) + "\t\t\t|\n";
+  }
 
-  // string posicionIndividuos = "";
-  // cout << "extraerNombreIndividuos++" << endl;
-  // for(int i = 0; i < individuos.size(); i++)
-  // {
-  //   posicionIndividuos =
-  //   extraerNombreIndividuo(orillaIzquierda, i) + "\t\t| " +
-  //   extraerNombreIndividuo(orillaIzquierda->obtenerVecino(), i) + "\t\t| " +
-  //   extraerNombreIndividuo(orillaDerecha->obtenerVecino(), i) + "\t\t| " +
-  //   extraerNombreIndividuo(orillaDerecha, i) + "\t\t| ";
-  // }
-
-  // cout << posicionIndividuos << endl;
+  cout << lugares << posicionIndividuos << endl;
+  leerTeclado();
 }
-
 
 void Jugador::jugar()
 {
-  for(int cualIndividuo = 0; cualIndividuo < individuos.size(); cualIndividuo++)
-  {
-    orillaIzquierda->agregarIndividuo(individuos[cualIndividuo]);
-  }
+  // for(int cualIndividuo = 0; cualIndividuo < individuos.size(); cualIndividuo++)
+  // {
+  //   orillaIzquierda->agregarIndividuo(individuos[cualIndividuo]);
+  // }
+  orillaIzquierda->agregarIndividuo(individuos[0]);
+  orillaIzquierda->agregarIndividuo(individuos[1]);
+  // orillaIzquierda->agregarIndividuo(individuos[2]);
+  orillaIzquierda->agregarIndividuo(individuos[3]);
+  barca->agregarIndividuo(individuos[2]);
+  cout << orillaIzquierda->mostrarIndividuosContenidos() << endl;
+  cout << barca->mostrarIndividuosContenidos() << endl;
+  cout << orillaDerecha->mostrarIndividuosContenidos() << endl;
+
   // // cout << "Prueba cuales individuos hay en la izq: " << orillaIzquierda->mostrarIndividuosContenidos() << endl;
   // barca->desplazarse();
   // // cout << "Prueba que la barca no se movio: " << barca->decirVecino() << endl;
@@ -72,10 +84,9 @@ void Jugador::jugar()
   // // cout << "Prueba cuantos individuos hay en la izq : " << orillaIzquierda->mostrarIndividuosContenidos() << endl;
   // orillaIzquierda->haPerdido();
 
-  // imprimirOpciones();
-  // mostrarEstadoJuego();
-
-  // leerTeclado();
+  imprimirOpciones();
+  mostrarEstadoJuego();
+  leerTeclado();
 
   // // prueba comer
   //   cout << zorro.decirSiPuedeComerseA(&conejo) << endl;
@@ -112,18 +123,22 @@ void Jugador::moverIndividuo(Individuo* individuo)
 void Jugador::leerTeclado()
 {
   string opcion = "";
-  cout << "¿Que deseas hacer?: " << endl;
+  cout << "¿Que deseas hacer?: ";
   getline(cin, opcion);
-  cout << "Ejecutar opcion " << opcion << endl;
+  cout << "Ejecutar opcion " << opcion << " -> ";
 
-  if (opcion == "R" || opcion == "r")
+  if (opcion == "R")
   {
     cout << "mover al robot" << endl;
   }
-  else if (opcion == "Z" || opcion == "z")
+  else if (opcion == "Z")
   {
     cout << "mover al zorro" << endl;
   }
+  else {
+    cout << "La opcion ingresada no es valida" << endl;
+  }
+  mostrarEstadoJuego();
 }
 
 void Jugador::imprimirOpciones()

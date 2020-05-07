@@ -30,19 +30,20 @@ Barca::~Barca()
 
 bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 {
-  if(individuosContenidos.size() < 2)
-  {
-    individuosContenidos.push_back(elIndividuo); 
-    return true;
-  }
+  individuosContenidos.push_back(elIndividuo); 
+  // if(individuosContenidos.size() < 2)
+  // {
+  //   individuosContenidos.push_back(elIndividuo); 
+  //   return true;
+  // }
   return false;
 }
 
 void Barca::desplazarse()
 {
-  if(this->cantidadIndividuos() >= 1)
+  if(cantidadIndividuos() >= 1)
   {
-    if(this->decirVecino() == orillaDerecha->decirNombre())
+    if(decirVecino() == orillaDerecha->decirNombre())
     {
       vecino = orillaIzquierda;
       orillaIzquierda->agregarVecino(this);

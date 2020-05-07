@@ -119,12 +119,12 @@ bool Lugar::estaElIndividuo(Individuo* individuo)
   return respuesta;
 }
 
-Individuo* Lugar::sacarIndividuoEnPosicion(int posicion)
+string Lugar::nombreIndividuoEnPosicion(int posicion)
 {
-  Individuo* individuo = nullptr;
-  if (!individuosContenidos.empty() && individuosContenidos.size() <= posicion)
+  string nombreIndividuo = "";
+  if (!individuosContenidos.empty() && individuosContenidos.size() > posicion)
   {
-    individuo = individuosContenidos[posicion];
+    nombreIndividuo = individuosContenidos[posicion]->decirNombre();
   }
-  return individuo;
+  return nombreIndividuo;
 }

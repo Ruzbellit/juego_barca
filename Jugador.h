@@ -86,8 +86,6 @@ class Jugador
      */
     virtual void terminarJuego();
 
-    // virtual string extraerNombreIndividuo(Lugar* lugar, int posicionIndividuo);
-
 };
 #else
 class Jugador; 
