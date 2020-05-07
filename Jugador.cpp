@@ -24,8 +24,7 @@ Jugador::Jugador(vector<Individuo*> losIndividuos)
   barca = new Barca("Barca ", orillaIzquierda, orillaDerecha);
   orillaIzquierda = new Orilla("Izquierda", barca);
   orillaDerecha = new Orilla("Derecha", nullptr);
-  
-
+  barca->agregarVecino(orillaIzquierda);
 }
 
 Jugador::~Jugador()
@@ -93,27 +92,6 @@ void Jugador::jugar()
 
 }
 
-
-void Jugador::desplazarBarca()
-{
-  if(barca->cantidadIndividuos() >= 1)
-  {
-    if(orillaDerecha->decirNombre() == barca->decirVecino())
-    {
-      orillaIzquierda->agregarVecino(barca);
-      orillaDerecha->agregarVecino(nullptr);
-      barca->agregarVecino(orillaIzquierda);
-    }
-    else
-    {
-      orillaIzquierda->agregarVecino(nullptr);
-      orillaDerecha->agregarVecino(barca);
-      barca->agregarVecino(orillaDerecha);
-    }
-  }
-}
-
-
 void Jugador::moverIndividuo(Individuo* individuo)
 {
   if(barca->estaElIndividuo(individuo) == true)
@@ -130,7 +108,6 @@ void Jugador::moverIndividuo(Individuo* individuo)
     }
   }
 }
-
 
 void Jugador::leerTeclado()
 {

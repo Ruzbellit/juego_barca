@@ -21,7 +21,6 @@ Barca::Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha) 
   nombre = elNombre;
   orillaIzquierda = laOrillaIzquierda;
   orillaDerecha = laOrillaDerecha;
-  vecino = laOrillaIzquierda;
 }
 
 Barca::~Barca()
@@ -39,15 +38,21 @@ bool  Barca::agregarIndividuo(Individuo* elIndividuo)
   return false;
 }
 
-
-string Barca::decirVecino()
-{ 
-  return vecino->decirNombre();
+void Barca::desplazarse()
+{
+  if(this->cantidadIndividuos() >= 1)
+  {
+    if(this->decirVecino() == orillaDerecha->decirNombre())
+    {
+      vecino = orillaIzquierda;
+      orillaIzquierda->agregarVecino(this);
+      orillaDerecha->agregarVecino(nullptr);
+    }
+    else
+    {
+      vecino = orillaDerecha;
+      orillaDerecha->agregarVecino(this);
+      orillaIzquierda->agregarVecino(nullptr);
+    }
+  }
 }
-
-/*
-crear metodo en barca para barca->actualizaVecino(string nombreOrillaVecina), el metodo solo recibe el nombre del vecino (orilla), ese dato es suficiente para que la bacar pueda actualizar su vecino
-
-orilla también tiene un metodo para actualizar vecino. Si es la barca, notifica a la barca que él es su nuevo vecino y la otra orilla actualiza su vecino a nullptr
-*/
-

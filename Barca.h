@@ -46,16 +46,13 @@ class Barca: public Lugar
     virtual bool agregarIndividuo(Individuo* elIndividuo);
 
     /**
-     * @brief dice el nombre del vecino actual
-     * @return el nombre del vecino 
+     * @brief mueve la barca de una orilla a otra, verifica si tiene al menos un individuo
+     * TODO: falta hacer que solo se desplace si esta el robot para manejarla
      */
-    virtual string decirVecino();
-
-
-    
-
+    virtual void desplazarse();
 
 };
+
 #else
 class Barca; 
 #endif

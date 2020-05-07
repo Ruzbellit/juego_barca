@@ -32,10 +32,6 @@ int main()
   conejo.seComeA(&lechuga);
   zorro.seComeA(&conejo);
 
-  // Individuo bryan("Bryan");
-  // Individuo belly("Ruzbellit");
-  // bryan.secomeA(&belly);
-
   listaDeIndividuos.push_back(&robot);
   listaDeIndividuos.push_back(&zorro);
   listaDeIndividuos.push_back(&conejo);
@@ -45,7 +41,7 @@ int main()
 
   jugador.jugar();
   jugador.imprimirOpciones();
-  jugador.desplazarBarca();
+  // jugador.desplazarBarca();
   jugador.mostrarEstadoJuego();
 
 

@@ -58,12 +58,6 @@ class Jugador
     virtual void jugar();
 
     /**
-     * @brief mueve la barca de un lado a otro si tiene un individuo
-     * TODO: falta hacer que solo se desplace si esta el robot para manejarla
-     */
-    virtual void desplazarBarca();
-
-    /**
      * @brief mueve el individuo al lado mas cercano
      * TODO: falta hacer que si no esta la barca el individuo 
      * tambien se mueva pero se ahogue
