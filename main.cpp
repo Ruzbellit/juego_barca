@@ -44,14 +44,18 @@ int main()
   Jugador jugador(listaDeIndividuos);
 
   jugador.jugar();
+  jugador.imprimirOpciones();
+  jugador.desplazarBarca();
+  jugador.mostrarEstadoJuego();
 
 
-//   cout << "El vecino inicial de barca es:" << barca.mostrarVecino() << endl;
+
+//   cout << "El vecino inicial de barca es:" << barca.decirVecino() << endl;
 //   barca.desplazarse();
-//   cout << "Prueba que la barca no se movio :" << barca.mostrarVecino() << endl;
+//   cout << "Prueba que la barca no se movio :" << barca.decirVecino() << endl;
 //   barca.agregarIndividuo(&conejo);
 //   barca.desplazarse();
-//   cout << "Prueba que la barca se mueve: " << barca.mostrarVecino() << endl;
+//   cout << "Prueba que la barca se mueve: " << barca.decirVecino() << endl;
 
 // // prueba comer
 //   cout << zorro.decirSiPuedeComerseA(&conejo) << endl;
@@ -62,7 +66,7 @@ int main()
 
 //   orillaIzquierda.agregarVecino(&barca);
 
-//   cout << orillaIzquierda.mostrarVecino() << endl;
+//   cout << orillaIzquierda.decirVecino() << endl;
 
 //   orillaIzquierda.agregarIndividuo(&conejo);
 

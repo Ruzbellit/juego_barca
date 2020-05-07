@@ -1,11 +1,11 @@
 /*
-  Archivo: Vagon.h
+  Archivo: Lugar.h
   Autor: Daniel Rodriguez sanchez (1927631)
   Autor: Ruzbellit Rossy Romero Ramirez (1925456)
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-04-02
+  Fecha última modificación: 2020-05-05
   Versión: 0.1
   Licencia: GPL
 */
@@ -29,26 +29,86 @@ class Lugar
 
   public:
 
+    /**
+     * @brief Constructor. Da valores iniciales a los atributos internos
+     * @param elNombre (nombre del lugar)
+     */
     Lugar(string elNombre);
 
+    /**
+     * @brief Destructor. TODO: elimina punteros
+     */
     virtual ~Lugar();
 
-    virtual void agregarIndividuo(Individuo* elIndividuo);
-
-    virtual void sacarIndividuo(Individuo* elIndividuo);
-
-    virtual bool haPerdido();
-
-    virtual string mostrarIndividuosContenidos();
-
-    virtual void agregarVecino(Lugar* vecino); 
-
+    /**
+     * @brief dice el nombre que se asigno al lugar
+     * @return nombre del lugar
+     */
     virtual string decirNombre();
 
-    // TODO: elimintar este método, es de pruebas
-    virtual string mostrarVecino();
-    virtual Lugar* obtenerVecino();
+    /**
+     * @brief agrega un individuo al lugar 
+     * @param elIndividuo (el individuo que queremos agregar)
+     * @return fue agregado(true) 
+     */
+    virtual bool agregarIndividuo(Individuo* elIndividuo);
+
+    /**
+     * @brief verifica que el individuo esta en el lugar y lo borra 
+     * @param elIndividuo (el individuo que queremos sacar)
+     */
+    virtual void sacarIndividuo(Individuo* elIndividuo);
+
+    /**
+     * @brief verifica si los individuos se pueden comer entre ellos
+     * @return si se pueden comer o no los individuos entre ellos  
+     */
+    virtual bool haPerdido();
+
+    /**
+     * @brief actualiza su vecino
+     * @param elVecino (el vecino por el que se va a cambiar)  
+     */
+    virtual void agregarVecino(Lugar* elVecino); 
+
+    /**
+     * @brief dice el nombre de su vecino 
+     * @return el nombre del vecino o un vacio en caso de que no tenga 
+     */
+    virtual string decirVecino();
+
+    /**
+     * @brief busca cuantos individuos hay en el lugar 
+     * @return la cantidad de individuos 
+     */
     virtual int cantidadIndividuos();
+
+    /**
+     * @brief mostrar su vecino 
+     * @return el lugar vecino  
+     */
+    virtual Lugar* obtenerVecino();
+
+    /**
+     * @brief busca si el individuo esta en ese lugar 
+     * @param individuo (el individuo a buscar)
+     * @return dice si se encuentra o no el individuo buscado  
+     */
+    virtual bool estaElIndividuo(Individuo* individuo);
+
+
+    // TODO: elimintar este método, es de pruebas
+    /**
+     * @brief busca elnombre en todos sus individuos contenidos 
+     * @return el nombre de todos sus individuos 
+     */
+    virtual string mostrarIndividuosContenidos();
+
+    /**
+     * @brief muestra el individuo en cierta posicion
+     * @param posicion (elnumero de la posicion donde esta el individuo)
+     * @return el individuo que esta en la posicion indicada  
+     */
     virtual Individuo* sacarIndividuoEnPosicion(int posicion);
 
 

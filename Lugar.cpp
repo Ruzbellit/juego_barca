@@ -1,11 +1,11 @@
 /*
-  Archivo: Vagon.h
+  Archivo: Lugar.cpp
   Autor: Daniel Rodriguez sanchez (1927631)
   Autor: Ruzbellit Rossy Romero Ramirez (1925456)
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-04-02
+  Fecha última modificación: 2020-05-05
   Versión: 0.1
   Licencia: GPL
 */
@@ -22,15 +22,20 @@ Lugar::Lugar(string elNombre)
   nombre = elNombre;
 }
 
-
 Lugar::~Lugar()
 {
   //Nota: Destruir puntero individuosContenidos
 }
 
-void Lugar::agregarIndividuo(Individuo* elIndividuo)
+string Lugar::decirNombre()
+{
+  return nombre;
+}
+
+bool Lugar::agregarIndividuo(Individuo* elIndividuo)
 {
   individuosContenidos.push_back(elIndividuo);
+  return true;
 }
 
 void Lugar::sacarIndividuo(Individuo* elIndividuo)
@@ -60,38 +65,18 @@ bool Lugar::haPerdido()
   return perdio;
 }
 
-string Lugar::mostrarIndividuosContenidos()
+void Lugar::agregarVecino(Lugar* elVecino)
 {
-  string contenedor = "Los elementos son: ";
-  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
-  {
-    contenedor += individuosContenidos[cualIndividuo]->decirNombre() + " ";
-  }
-  return contenedor;
+  vecino = elVecino;
 }
 
-void Lugar::agregarVecino(Lugar* vecino)
-{
-
-}
-
-string Lugar::decirNombre()
-{
-  return nombre;
-}
-
-string Lugar::mostrarVecino()
+string Lugar::decirVecino()
 {
   if(vecino == nullptr)
   {
-    return "no tiene un pinchesito vecinito";
+    return "\t";
   }
     return vecino->decirNombre();
-}
-
-Lugar* Lugar::obtenerVecino()
-{
-  return vecino;
 }
 
 int Lugar::cantidadIndividuos()
@@ -104,6 +89,34 @@ int Lugar::cantidadIndividuos()
   {
     return individuosContenidos.size();
   }
+}
+
+string Lugar::mostrarIndividuosContenidos()
+{
+  string contenedor = "Los elementos son: ";
+  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
+  {
+    contenedor += individuosContenidos[cualIndividuo]->decirNombre() + " ";
+  }
+  return contenedor;
+}
+
+Lugar* Lugar::obtenerVecino()
+{
+  return vecino;
+}
+
+bool Lugar::estaElIndividuo(Individuo* individuo)
+{
+  bool respuesta = false;
+  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
+  {
+    if(individuo == individuosContenidos[cualIndividuo])
+    {
+      respuesta = true;
+    }
+  }
+  return respuesta;
 }
 
 Individuo* Lugar::sacarIndividuoEnPosicion(int posicion)

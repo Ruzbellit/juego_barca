@@ -1,14 +1,15 @@
- /*
-  Archivo: Vagon.h
+/*
+  Archivo: Barca.h
   Autor: Daniel Rodriguez sanchez (1927631)
   Autor: Ruzbellit Rossy Romero Ramirez (1925456)
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-04-02
+  Fecha última modificación: 2020-05-05
   Versión: 0.1
   Licencia: GPL
 */
+
 
 
 #ifndef HH_BARCA
@@ -23,16 +24,35 @@ class Barca: public Lugar
     Lugar* orillaDerecha;
 
   public:
+
+    /**
+     * @brief Constructor. Da valores iniciales a los atributos internos
+     * @param elNombre (el nombre de la barca)
+     * @param laOrillaIzquierda
+     * @param laOrillaDerecha
+     */  
     Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha);
 
+    /**
+     * @brief Destructor. TODO: elimina punteros
+     */
     virtual ~Barca();
 
-    virtual void agregarIndividuo(Individuo* elIndividuo);
+    /**
+     * @brief agrega un individuo a la barca
+     * @param elIndividuo (el individuo a agregar)
+     * @return dice si el individuo se pudo agregar o no
+     */
+    virtual bool agregarIndividuo(Individuo* elIndividuo);
 
-    virtual bool desplazarse();
+    /**
+     * @brief dice el nombre del vecino actual
+     * @return el nombre del vecino 
+     */
+    virtual string decirVecino();
 
-    // TODO: elimintar este método, es de pruebas
-    virtual string mostrarVecino();
+
+    
 
 
 };

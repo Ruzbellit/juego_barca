@@ -1,11 +1,11 @@
 /*
-  Archivo: Vagon.h
+  Archivo: Barca.cpp
   Autor: Daniel Rodriguez sanchez (1927631)
   Autor: Ruzbellit Rossy Romero Ramirez (1925456)
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-04-02
+  Fecha última modificación: 2020-05-05
   Versión: 0.1
   Licencia: GPL
 */
@@ -14,6 +14,7 @@
 #include "Individuo.h"
 #include "Barca.h"
 #include "Lugar.h"
+#include "Jugador.h"
 
 Barca::Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha) : Lugar(elNombre)
 {
@@ -25,33 +26,21 @@ Barca::Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha) 
 
 Barca::~Barca()
 {
-  
+  //eliminar punteros
 }
 
-void Barca::agregarIndividuo(Individuo* elIndividuo)
+bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 {
   if(individuosContenidos.size() < 2)
   {
-    individuosContenidos.push_back(elIndividuo);  
+    individuosContenidos.push_back(elIndividuo); 
+    return true;
   }
-  //return la barca esta llena
+  return false;
 }
 
-bool Barca::desplazarse()
-{
-  bool respuesta = false;
-  if(individuosContenidos.size() >= 1)
-  {
-    if(vecino == orillaIzquierda)
-    {
-      vecino = orillaDerecha;
-    }
-    respuesta = true;
-  }
-  return respuesta;
-}
 
-string Barca::mostrarVecino()
+string Barca::decirVecino()
 { 
   return vecino->decirNombre();
 }

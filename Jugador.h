@@ -1,11 +1,11 @@
  /*
-  Archivo: Vagon.h
+  Archivo: Jugador.h
   Autor: Daniel Rodriguez sanchez (1927631)
   Autor: Ruzbellit Rossy Romero Ramirez (1925456)
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-04-02
+  Fecha última modificación: 2020-05-05
   Versión: 0.1
   Licencia: GPL
 */
@@ -14,19 +14,14 @@
 #ifndef HH_JUGADOR
 #define HH_JUGADOR
 
-#include <vector>
-#include "Individuo.h"
-#include "Orilla.h"
-#include "Barca.h"
-
 #include <iostream>
+#include <vector>
 #include <string>
 #include "Individuo.h"
-#include "Lugar.h"
 #include "Orilla.h"
 #include "Barca.h"
+#include "Lugar.h"
 
-using namespace std;
 
 using namespace std;
 
@@ -39,23 +34,63 @@ class Jugador
     Barca* barca;
 
   public:
+
+    /**
+     * @brief Constructor. Da valores iniciales a los atributos internos
+     * @param losIndividuos (los individuos creados para el juego)
+     */
     Jugador(vector<Individuo*> losIndividuos);
 
+    /**
+     * @brief Destructor. TODO: elimina punteros
+     */
     virtual ~Jugador();
 
-    // virtual void mostrarEstadoJuego();
+    /**
+     * @brief imprime en pantalla el estado del juego para cada movimiento
+     * TODO: falta terminarlo
+     */
+    virtual void mostrarEstadoJuego();
 
+    /**
+     * @brief TODO: falta hacerlo bien 
+     */
     virtual void jugar();
 
+    /**
+     * @brief mueve la barca de un lado a otro si tiene un individuo
+     * TODO: falta hacer que solo se desplace si esta el robot para manejarla
+     */
+    virtual void desplazarBarca();
+
+    /**
+     * @brief mueve el individuo al lado mas cercano
+     * TODO: falta hacer que si no esta la barca el individuo 
+     * tambien se mueva pero se ahogue
+     * @param individuo (el individuo que se desea mover)
+     */
+    virtual void moverIndividuo(Individuo* individuo);
+
+    /**
+     * @brief ejecuta movimientos con teclas
+     * TODO: falta terminarlo
+     */
     virtual void leerTeclado();
 
+    /**
+     * @brief muestra en pantalla las instrucciones 
+     */
     virtual void imprimirOpciones();
 
+     /**
+     * TODO: falta hacer esta funcion
+     */
     virtual void ejecutarAccion();
 
+    /**
+     * TODO: falta hacer esta funcion
+     */
     virtual void terminarJuego();
-
-    // virtual string imprimirPosicionBarca(string nombreVecino);
 
     // virtual string extraerNombreIndividuo(Lugar* lugar, int posicionIndividuo);
 
