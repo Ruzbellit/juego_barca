@@ -14,6 +14,7 @@
 #include "Individuo.h"
 #include "Barca.h"
 #include "Lugar.h"
+#include "Orilla.h"
 #include "Jugador.h"
 
 Barca::Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha) : Lugar(elNombre)
@@ -30,12 +31,11 @@ Barca::~Barca()
 
 bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 {
-  individuosContenidos.push_back(elIndividuo); 
-  // if(individuosContenidos.size() < 2)
-  // {
-  //   individuosContenidos.push_back(elIndividuo); 
-  //   return true;
-  // }
+  if(individuosContenidos.size() < 2)
+  {
+    individuosContenidos.push_back(elIndividuo); 
+    return true;
+  }
   return false;
 }
 

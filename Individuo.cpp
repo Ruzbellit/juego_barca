@@ -14,14 +14,15 @@
 #include <vector>
 #include "Individuo.h"
 
-Individuo::Individuo(string nombreIndividuo)
+Individuo::Individuo(string nombreIndividuo, string elIdentificador)
 {
   nombre = nombreIndividuo;
+  identificador = elIdentificador;
 }
 
 Individuo::~Individuo()
 {
-  // NOTA: eliminar punteros (individuosComestibles)
+  // TODO: eliminar punteros (individuosComestibles)
 }
 
 void Individuo::seComeA(Individuo* individuoComestible)
@@ -45,4 +46,9 @@ bool Individuo::decirSiPuedeComerseA(Individuo* individuo)
     }
   }
   return respuesta;
+}
+
+string Individuo::cualEsIdentificador()
+{
+  return identificador;
 }

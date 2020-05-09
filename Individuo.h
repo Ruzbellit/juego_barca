@@ -23,6 +23,7 @@ class Individuo
 {
   protected:
     string nombre;
+    string identificador;
     vector<Individuo*> individuosComestibles;
 
   public:
@@ -30,8 +31,9 @@ class Individuo
     /**
      * @brief Constructor. Da valores iniciales a los atributos internos
      * @param nombreIndividuo (el nombre del individuo)
+     * @param elIdentificador (letra indicadora del individuo)
      */
-    Individuo(string nombreIndividuo);
+    Individuo(string nombreIndividuo, string elIdentificador);
 
     /**
      * @brief Destructor. TODO: elimina punteros
@@ -56,6 +58,12 @@ class Individuo
      * @return dice si puede comerse al individuo o no 
      */
     virtual bool decirSiPuedeComerseA(Individuo* individuo);
+
+    /**
+     * @brief dice el identificador que tiene el individuo
+     * @return identificador del individuo
+     */
+    virtual string cualEsIdentificador();
 
      
 

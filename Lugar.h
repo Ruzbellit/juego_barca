@@ -53,11 +53,11 @@ class Lugar
      */
     virtual bool agregarIndividuo(Individuo* elIndividuo);
 
-    /** TODO: renombrar por borrarIndividuo
+    /** 
      * @brief verifica que el individuo esta en el lugar y lo borra 
      * @param elIndividuo (el individuo que queremos sacar)
      */
-    virtual void sacarIndividuo(Individuo* elIndividuo);
+    virtual void borrarIndividuo(Individuo* elIndividuo);
 
     /**
      * @brief verifica si los individuos se pueden comer entre ellos
@@ -97,7 +97,7 @@ class Lugar
     virtual bool estaElIndividuo(Individuo* individuo);
 
     /**
-     * @brief busca elnombre en todos sus individuos contenidos 
+     * @brief busca el nombre en todos sus individuos contenidos 
      * @return el nombre de todos sus individuos 
      */
     virtual string mostrarIndividuosContenidos();

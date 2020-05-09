@@ -58,6 +58,12 @@ class Jugador
     virtual void jugar();
 
     /**
+     * @brief avisa al usuario cuando un individuo se ha ahogado
+     * @param nombreIndividuo 
+     */
+    virtual void seAhogoIndividuo(string nombreIndividuo);
+
+    /**
      * @brief mueve el individuo al lado mas cercano
      * TODO: falta hacer que si no esta la barca el individuo 
      * tambien se mueva pero se ahogue
@@ -67,7 +73,7 @@ class Jugador
 
     /**
      * @brief ejecuta movimientos con teclas
-     * TODO: falta terminarlo
+     * TODO: falta arreglar cuando se ingresa mal la opcion
      */
     virtual void leerTeclado();
 

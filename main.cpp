@@ -24,10 +24,10 @@ int main()
 {
   vector<Individuo*> listaDeIndividuos;
 
-  Individuo robot("Robot ");
-  Individuo zorro("Zorro ");
-  Individuo conejo("Conejo");
-  Individuo lechuga("Lechuga");
+  Individuo robot("Robot ","R");
+  Individuo zorro("Zorro ", "Z");
+  Individuo conejo("Conejo", "C");
+  Individuo lechuga("Lechuga", "L");
 
   conejo.seComeA(&lechuga);
   zorro.seComeA(&conejo);
@@ -69,7 +69,7 @@ int main()
 
 //   cout << probarSiHaPerdido(orillaIzquierda.haPerdido()) << endl;
 
-//   orillaIzquierda.sacarIndividuo(&zorro);
+//   orillaIzquierda.borrarIndividuo(&zorro);
 
 //   cout << orillaIzquierda.mostrarIndividuosContenidos() << endl;
 

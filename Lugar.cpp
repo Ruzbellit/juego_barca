@@ -38,7 +38,7 @@ bool Lugar::agregarIndividuo(Individuo* elIndividuo)
   return true;
 }
 
-void Lugar::sacarIndividuo(Individuo* elIndividuo)
+void Lugar::borrarIndividuo(Individuo* elIndividuo)
 {
  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
  {
