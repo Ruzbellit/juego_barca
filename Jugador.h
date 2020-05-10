@@ -32,6 +32,7 @@ class Jugador
     Orilla* orillaIzquierda;
     Orilla* orillaDerecha;
     Barca* barca;
+    bool alguienSeAhogo;
 
   public:
 
@@ -51,6 +52,11 @@ class Jugador
      * TODO: falta terminarlo
      */
     virtual void mostrarEstadoJuego();
+
+    /**
+     * 
+     */ 
+    virtual void validarSiPerdio();
 
     /**
      * @brief TODO: falta hacerlo bien 
@@ -87,10 +93,6 @@ class Jugador
      */
     virtual void ejecutarAccion(string opcion);
 
-    /**
-     * TODO: falta hacer esta funcion
-     */
-    virtual void terminarJuego();
 
 };
 #else

@@ -26,6 +26,7 @@ Jugador::Jugador(vector<Individuo*> losIndividuos)
   barca = new Barca("Barca ", orillaIzquierda, orillaDerecha);
   orillaIzquierda->agregarVecino(barca);
   barca->agregarVecino(orillaIzquierda);
+  alguienSeAhogo = false;
 }
 
 Jugador::~Jugador()
@@ -83,7 +84,20 @@ void Jugador::mostrarEstadoJuego()
   }
 
   cout << lugares << posicionIndividuos << endl;
-  leerTeclado();
+
+  validarSiPerdio();
+}
+
+void Jugador::validarSiPerdio()
+{
+  if (barca->haPerdido() || orillaIzquierda->haPerdido() || orillaDerecha->haPerdido() || alguienSeAhogo)
+  {
+    cout << "HAS PERDIDO!!" << endl;
+  }
+  else
+  {
+    leerTeclado();
+  }
 }
 
 void Jugador::jugar()
@@ -95,17 +109,17 @@ void Jugador::jugar()
 
   imprimirOpciones();
   mostrarEstadoJuego();
-  leerTeclado();
 }
 
 void Jugador::seAhogoIndividuo(string nombreIndividuo)
 {
-  cout << nombreIndividuo << " se ahogo" << endl;
-  //void Jugador::terminarJuego()
+  alguienSeAhogo = true;
+  cout << nombreIndividuo << " se ahogó" << endl;
 }
 
 void Jugador::moverIndividuo(Individuo* individuo)
 {
+  // si el individuo esta en la barca
   if(barca->estaElIndividuo(individuo) == true)
   {
     barca->borrarIndividuo(individuo);
@@ -113,11 +127,13 @@ void Jugador::moverIndividuo(Individuo* individuo)
   }
   else
   {
+    // si el individuo esta en el vecino de la barca 
     if((barca->obtenerVecino())->estaElIndividuo(individuo) == true)
     {
       (barca->obtenerVecino())->borrarIndividuo(individuo);
       barca->agregarIndividuo(individuo);
     }
+    // si el individuo no esta en el vecino de la barca
     else 
     {
       if(barca->decirVecino() == orillaDerecha->decirNombre())
@@ -183,9 +199,4 @@ void Jugador::ejecutarAccion(string opcion)
     }
   }
   mostrarEstadoJuego();
-}
-
-void Jugador::terminarJuego()
-{
- //Falta
 }

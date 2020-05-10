@@ -52,11 +52,20 @@ void Lugar::borrarIndividuo(Individuo* elIndividuo)
 bool Lugar::haPerdido()
 {
   bool perdio = false;
+  bool estaRobot = false;
+  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
+  {
+    if(individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
+    {
+      estaRobot = true;
+    }
+  }
+
   for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
   {
     for(int cualIndividuoAComer = 0; cualIndividuoAComer < individuosContenidos.size(); cualIndividuoAComer++)
     {
-      if(individuosContenidos[cualIndividuo]->decirSiPuedeComerseA(individuosContenidos[cualIndividuoAComer]) == true)
+      if(individuosContenidos[cualIndividuo]->decirSiPuedeComerseA(individuosContenidos[cualIndividuoAComer]) == true && !estaRobot)
       {
         perdio = true;
       }
