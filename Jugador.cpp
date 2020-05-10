@@ -140,8 +140,27 @@ void Jugador::leerTeclado()
   cout << "¿Que deseas hacer?: ";
   getline(cin, opcion);
   cout << "Ejecutar opcion " << opcion << " -> ";
+  ejecutarAccion(opcion);
+}
 
-  if (opcion == "B")
+void Jugador::imprimirOpciones()
+{
+  string opciones =
+    "===========================================\n"
+    "Las órdenes que puede dar el jugador son (usando el teclado): \n"
+    "B la Barca se mueve a la otra orilla\n"
+    "R el Robot salta de/a la barca\n"
+    "Z el Zorro salta de/a la barca\n"
+    "C el Conejo salta de/a la barca\n"
+    "L la Lechuga salta de/a la barca\n"
+    "X salir del juego\n"
+    "===========================================\n\n";
+  cout << opciones << endl;
+}
+
+void Jugador::ejecutarAccion(string opcion)
+{
+ if (opcion == "B")
   {
     cout << "mover" << barca->decirNombre() << endl;
     barca->desplazarse();
@@ -163,28 +182,7 @@ void Jugador::leerTeclado()
       }
     }
   }
- 
   mostrarEstadoJuego();
-}
-
-void Jugador::imprimirOpciones()
-{
-  string opciones =
-    "===========================================\n"
-    "Las órdenes que puede dar el jugador son (usando el teclado): \n"
-    "B la Barca se mueve a la otra orilla\n"
-    "R el Robot salta de/a la barca\n"
-    "Z el Zorro salta de/a la barca\n"
-    "C el Conejo salta de/a la barca\n"
-    "L la Lechuga salta de/a la barca\n"
-    "X salir del juego\n"
-    "===========================================\n\n";
-  cout << opciones << endl;
-}
-
-void Jugador::ejecutarAccion()
-{
- //Falta
 }
 
 void Jugador::terminarJuego()

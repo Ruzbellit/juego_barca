@@ -83,9 +83,9 @@ class Jugador
     virtual void imprimirOpciones();
 
      /**
-     * TODO: falta hacer esta funcion
+     * TODO: falta documentar esta funcion
      */
-    virtual void ejecutarAccion();
+    virtual void ejecutarAccion(string opcion);
 
     /**
      * TODO: falta hacer esta funcion
