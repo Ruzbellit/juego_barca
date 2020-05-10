@@ -41,7 +41,15 @@ bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 
 void Barca::desplazarse()
 {
-  if(cantidadIndividuos() >= 1)
+  bool estaRobot = false;
+  for (int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++ )
+  {
+    if (individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
+    {
+      estaRobot = true;
+    }
+  }
+  if(cantidadIndividuos() >= 1 && estaRobot == true)
   {
     if(decirVecino() == orillaDerecha->decirNombre())
     {

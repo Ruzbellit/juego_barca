@@ -21,20 +21,18 @@ using namespace std;
 Jugador::Jugador(vector<Individuo*> losIndividuos)
 {
   individuos = losIndividuos;
-  barca = new Barca("Barca ", orillaIzquierda, orillaDerecha);
-  orillaIzquierda = new Orilla("Izquierda", barca);
+  orillaIzquierda = new Orilla("Izquierda", nullptr);
   orillaDerecha = new Orilla("Derecha", nullptr);
+  barca = new Barca("Barca ", orillaIzquierda, orillaDerecha);
+  orillaIzquierda->agregarVecino(barca);
   barca->agregarVecino(orillaIzquierda);
 }
 
 Jugador::~Jugador()
 {
- //destruir puntero
+ // TODO: destruir puntero
 }
 
-/**
- * TODO: Corregir tabulaciones/ parece estar listo falta que lo apruebe MR.Bryan
- */
 void Jugador::mostrarEstadoJuego()
 {
   string lugares = "| " + orillaIzquierda->decirNombre() + "\t\t| " + orillaIzquierda->decirVecino()  + "\t\t| " +  orillaDerecha->decirVecino() + "\t\t| " + orillaDerecha->decirNombre() + "\t\t|\n";
@@ -73,6 +71,7 @@ void Jugador::mostrarEstadoJuego()
         posicionIndividuos += "\t\t\t| " + barca->nombreIndividuoEnPosicion(i) + "\t\t\t| ";
       } 
     }
+
     if(orillaDerecha->cantidadIndividuos() > i)
     {
       posicionIndividuos += orillaDerecha->nombreIndividuoEnPosicion(i) + "\t\t|\n";
@@ -89,48 +88,14 @@ void Jugador::mostrarEstadoJuego()
 
 void Jugador::jugar()
 {
-  // for(int cualIndividuo = 0; cualIndividuo < individuos.size(); cualIndividuo++)
-  // {
-  //   orillaIzquierda->agregarIndividuo(individuos[cualIndividuo]);
-  // }
-  orillaIzquierda->agregarIndividuo(individuos[0]);
-  orillaDerecha->agregarIndividuo(individuos[1]);
-  //orillaIzquierda->agregarIndividuo(individuos[2]);
-  orillaIzquierda->agregarIndividuo(individuos[3]);
-  barca->agregarIndividuo(individuos[2]);
-  cout << orillaIzquierda->mostrarIndividuosContenidos() << endl;
-  cout << barca->mostrarIndividuosContenidos() << endl;
-  cout << orillaDerecha->mostrarIndividuosContenidos() << endl;
-
-  // // cout << "Prueba cuales individuos hay en la izq: " << orillaIzquierda->mostrarIndividuosContenidos() << endl;
-  // barca->desplazarse();
-  // // cout << "Prueba que la barca no se movio: " << barca->decirVecino() << endl;
-  // barca->agregarIndividuo(individuos[1]);
-  // barca->agregarIndividuo(individuos[2]);
-  // orillaIzquierda->borrarIndividuo(individuos[1]);
-  // orillaIzquierda->borrarIndividuo(individuos[2]);
-  // barca->desplazarse();
-  // // cout << "Prueba que la barca se mueve: " << barca->decirVecino() << endl;
-  // // cout << "Prueba cuantos individuos hay en la izq : " << orillaIzquierda->mostrarIndividuosContenidos() << endl;
-  // orillaIzquierda->haPerdido();
+  for(int cualIndividuo = 0; cualIndividuo < individuos.size(); cualIndividuo++)
+  {
+    orillaIzquierda->agregarIndividuo(individuos[cualIndividuo]);
+  }
 
   imprimirOpciones();
   mostrarEstadoJuego();
   leerTeclado();
-
-  // // prueba comer
-  //   cout << zorro.decirSiPuedeComerseA(&conejo) << endl;
-  //   zorro.seComeA(&conejo);
-  //   cout << zorro.decirSiPuedeComerseA(&conejo) << endl;
-  //   // Lugar orillaIzquierda;
-  //   orillaIzquierda.agregarVecino(&barca);
-  //   cout << orillaIzquierda.decirVecino() << endl;
-  //   orillaIzquierda.agregarIndividuo(&conejo);
-  //   orillaIzquierda.agregarIndividuo(&zorro);
-  //   cout << orillaIzquierda.mostrarIndividuosContenidos() << endl;
-  //   orillaIzquierda.borrarIndividuo(&zorro);
-  //   cout << orillaIzquierda.mostrarIndividuosContenidos() << endl;
-
 }
 
 void Jugador::seAhogoIndividuo(string nombreIndividuo)
@@ -164,7 +129,6 @@ void Jugador::moverIndividuo(Individuo* individuo)
       {
         orillaDerecha->borrarIndividuo(individuo);
         seAhogoIndividuo(individuo->decirNombre());
-        
       }
     }
   }
@@ -179,7 +143,7 @@ void Jugador::leerTeclado()
 
   if (opcion == "B")
   {
-    cout << "mover la Barca" << endl;
+    cout << "mover" << barca->decirNombre() << endl;
     barca->desplazarse();
   }
   else
@@ -197,9 +161,7 @@ void Jugador::leerTeclado()
         if(i+1 == individuos.size())
         cout << "La opcion ingresada no es valida" << endl;
       }
-  
-    } 
-     
+    }
   }
  
   mostrarEstadoJuego();
