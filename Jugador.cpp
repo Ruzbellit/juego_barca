@@ -137,8 +137,15 @@ void Jugador::moverIndividuo(Individuo* individuo)
     // si el individuo esta en el vecino de la barca 
     if((barca->obtenerVecino())->estaElIndividuo(individuo) == true)
     {
-      (barca->obtenerVecino())->borrarIndividuo(individuo);
-      barca->agregarIndividuo(individuo);
+      if(barca->cantidadIndividuos() < 2)
+      {
+        (barca->obtenerVecino())->borrarIndividuo(individuo);
+        barca->agregarIndividuo(individuo);
+      }
+      else
+      {
+        cout << "No caben mas en la Barca!!" << endl;
+      }
     }
     // si el individuo no esta en el vecino de la barca
     else 
