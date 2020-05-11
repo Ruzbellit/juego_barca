@@ -39,7 +39,7 @@ bool  Barca::agregarIndividuo(Individuo* elIndividuo)
   return false;
 }
 
-void Barca::desplazarse()
+bool Barca::desplazarse()
 {
   bool estaRobot = false;
   for (int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++ )
@@ -49,6 +49,8 @@ void Barca::desplazarse()
       estaRobot = true;
     }
   }
+
+  bool respuesta;
   if(cantidadIndividuos() >= 1 && estaRobot == true)
   {
     if(decirVecino() == orillaDerecha->decirNombre())
@@ -56,12 +58,15 @@ void Barca::desplazarse()
       vecino = orillaIzquierda;
       orillaIzquierda->agregarVecino(this);
       orillaDerecha->agregarVecino(nullptr);
+      respuesta = true;
     }
     else
     {
       vecino = orillaDerecha;
       orillaDerecha->agregarVecino(this);
       orillaIzquierda->agregarVecino(nullptr);
+      respuesta = false;
     }
   }
+  return respuesta;
 }

@@ -190,27 +190,42 @@ void Jugador::imprimirOpciones()
 
 void Jugador::ejecutarAccion(string opcion)
 {
- if (opcion == "B")
+  if (opcion == "X")
   {
-    cout << "mover" << barca->decirNombre() << endl;
-    barca->desplazarse();
+    cout << "Salir del juego " << endl;
+    cout << "¡SALISTE DEL JUEGO! " << endl;
   }
   else
   {
-    for(int i = 0; individuos.size() > i; i++)
+    if (opcion == "B")
     {
-      if(opcion == individuos[i]->cualEsIdentificador())
+      cout << "mover" << barca->decirNombre() << endl;
+      if(barca->desplazarse() == true)
       {
-        cout << "mover " << individuos[i]->decirNombre() << endl;
-        moverIndividuo(individuos[i]);
-        i = individuos.size();
+        barca->desplazarse();
       }
       else
       {
-        if(i+1 == individuos.size())
-        cout << "La opcion ingresada no es valida" << endl;
+        cout << "No esta el robot para manejar la Barca!" << endl;
       }
     }
+    else
+    {
+      for(int i = 0; individuos.size() > i; i++)
+      {
+        if(opcion == individuos[i]->cualEsIdentificador())
+        {
+          cout << "mover " << individuos[i]->decirNombre() << endl;
+          moverIndividuo(individuos[i]);
+          i = individuos.size();
+        }
+        else
+        {
+          if(i+1 == individuos.size())
+          cout << "La opcion ingresada no es valida" << endl;
+        }
+      }
+    }
+    mostrarEstadoJuego();
   }
-  mostrarEstadoJuego();
 }

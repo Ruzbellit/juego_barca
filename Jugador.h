@@ -59,7 +59,7 @@ class Jugador
     virtual void validarPerdioGano();
 
     /**
-     * @brief TODO: falta hacerlo bien 
+     * @brief inicializa el juego añadiendo todos los individuos a la izquierda, muestra las opciones...
      */
     virtual void jugar();
 
