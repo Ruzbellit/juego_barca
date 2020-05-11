@@ -54,9 +54,9 @@ class Jugador
     virtual void mostrarEstadoJuego();
 
     /**
-     * 
+     * @brief valida si ha perdido o si ha ganado y si no es ninguna continua jugando
      */ 
-    virtual void validarSiPerdio();
+    virtual void validarPerdioGano();
 
     /**
      * @brief TODO: falta hacerlo bien 

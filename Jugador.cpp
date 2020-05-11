@@ -85,10 +85,10 @@ void Jugador::mostrarEstadoJuego()
 
   cout << lugares << posicionIndividuos << endl;
 
-  validarSiPerdio();
+  validarPerdioGano();
 }
 
-void Jugador::validarSiPerdio()
+void Jugador::validarPerdioGano()
 {
   if (barca->haPerdido() || orillaIzquierda->haPerdido() || orillaDerecha->haPerdido() || alguienSeAhogo)
   {
@@ -96,7 +96,14 @@ void Jugador::validarSiPerdio()
   }
   else
   {
-    leerTeclado();
+    if (orillaDerecha->cantidadIndividuos() == individuos.size())
+    {
+      cout << "HAS GANADO" << endl;
+    }
+    else
+    {
+      leerTeclado();
+    }
   }
 }
 
