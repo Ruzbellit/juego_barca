@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -26,7 +26,7 @@ Barca::Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha) 
 
 Barca::~Barca()
 {
-  //eliminar punteros
+
 }
 
 bool  Barca::agregarIndividuo(Individuo* elIndividuo)
@@ -42,16 +42,16 @@ bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 bool Barca::desplazarse()
 {
   bool estaRobot = false;
-  for (int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++ )
+  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++ )
   {
-    if (individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
+    if(individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
     {
       estaRobot = true;
     }
   }
 
   bool respuesta;
-  if(cantidadIndividuos() >= 1 && estaRobot == true)
+  if(estaRobot == true)
   {
     if(decirVecino() == orillaDerecha->decirNombre())
     {

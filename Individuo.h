@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -36,7 +36,7 @@ class Individuo
     Individuo(string nombreIndividuo, string elIdentificador);
 
     /**
-     * @brief Destructor. TODO: elimina punteros
+     * @brief Destructor.
      */
     virtual ~Individuo();
 
@@ -64,9 +64,7 @@ class Individuo
      * @return identificador del individuo
      */
     virtual string cualEsIdentificador();
-
-     
-
+    
 };
 #else
 class Individuo; 

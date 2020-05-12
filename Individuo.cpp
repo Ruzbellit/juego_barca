@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -22,7 +22,7 @@ Individuo::Individuo(string nombreIndividuo, string elIdentificador)
 
 Individuo::~Individuo()
 {
-  // TODO: eliminar punteros (individuosComestibles)
+
 }
 
 void Individuo::seComeA(Individuo* individuoComestible)
@@ -38,9 +38,9 @@ string Individuo::decirNombre()
 bool Individuo::decirSiPuedeComerseA(Individuo* individuo)
 {
   bool respuesta = false;
-  for (int cualIndividuo = 0; cualIndividuo < individuosComestibles.size(); cualIndividuo++)
+  for(int cualIndividuo = 0; cualIndividuo < individuosComestibles.size(); cualIndividuo++)
   {
-    if (individuosComestibles[cualIndividuo]->decirNombre() == individuo->decirNombre())
+    if(individuosComestibles[cualIndividuo]->decirNombre() == individuo->decirNombre())
     {
       respuesta = true;
     }

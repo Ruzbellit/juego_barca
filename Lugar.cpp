@@ -5,13 +5,12 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
 
 #include <vector>
-#include <iostream>
 #include "Individuo.h"
 #include "Lugar.h"
 
@@ -24,7 +23,7 @@ Lugar::Lugar(string elNombre)
 
 Lugar::~Lugar()
 {
-  //Nota: Destruir puntero individuosContenidos
+
 }
 
 string Lugar::decirNombre()
@@ -85,12 +84,15 @@ string Lugar::decirVecino()
   {
     return "\t";
   }
+  else
+  {
     return vecino->decirNombre();
+  }
 }
 
 int Lugar::cantidadIndividuos()
 {
-  if (individuosContenidos.empty())
+  if(individuosContenidos.empty())
   {
     return 0;
   }
@@ -98,16 +100,6 @@ int Lugar::cantidadIndividuos()
   {
     return individuosContenidos.size();
   }
-}
-
-string Lugar::mostrarIndividuosContenidos()
-{
-  string contenedor = "Los elementos son: ";
-  for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
-  {
-    contenedor += individuosContenidos[cualIndividuo]->decirNombre() + " ";
-  }
-  return contenedor;
 }
 
 Lugar* Lugar::obtenerVecino()

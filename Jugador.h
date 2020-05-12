@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -14,9 +14,7 @@
 #ifndef HH_JUGADOR
 #define HH_JUGADOR
 
-#include <iostream>
 #include <vector>
-#include <string>
 #include "Individuo.h"
 #include "Orilla.h"
 #include "Barca.h"
@@ -43,13 +41,13 @@ class Jugador
     Jugador(vector<Individuo*> losIndividuos);
 
     /**
-     * @brief Destructor. TODO: elimina punteros
+     * @brief Destructor, elimina los punteros barca, orillaDerecha y orillaIzquierda
      */
     virtual ~Jugador();
 
     /**
-     * @brief imprime en pantalla el estado del juego para cada movimiento
-     * TODO: falta terminarlo
+     * @brief imprime en pantalla el estado del juego para cada movimiento y verifica si 
+     * ha perdido, ha ganado o continua jugando 
      */
     virtual void mostrarEstadoJuego();
 
@@ -59,7 +57,8 @@ class Jugador
     virtual void validarPerdioGano();
 
     /**
-     * @brief inicializa el juego añadiendo todos los individuos a la izquierda, muestra las opciones...
+     * @brief inicializa el juego añadiendo todos los individuos a la izquierda, 
+     * muestra las opciones de control y lee el teclado 
      */
     virtual void jugar();
 
@@ -71,26 +70,24 @@ class Jugador
 
     /**
      * @brief mueve el individuo al lado mas cercano
-     * TODO: falta hacer que si no esta la barca el individuo 
-     * tambien se mueva pero se ahogue
      * @param individuo (el individuo que se desea mover)
      */
     virtual void moverIndividuo(Individuo* individuo);
 
     /**
-     * @brief ejecuta movimientos con teclas
-     * TODO: falta arreglar cuando se ingresa mal la opcion
+     * @brief pregunta al usuario que desea hacer, lee la opcion ingresada 
+     * e invoca a ejecutar accion pasandole la opcion 
      */
     virtual void leerTeclado();
 
     /**
-     * @brief muestra en pantalla las instrucciones 
+     * @brief muestra en pantalla las instrucciones del juego
      */
     virtual void imprimirOpciones();
 
      /**
-     * TODO: falta documentar esta funcion
-     */
+      * @brief ejecuta la opcion ingresada y muestra el estado del juego 
+      */
     virtual void ejecutarAccion(string opcion);
 
 

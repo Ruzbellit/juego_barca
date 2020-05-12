@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -34,22 +34,22 @@ class Barca: public Lugar
     Barca(string elNombre, Lugar* laOrillaIzquierda, Lugar* laOrillaDerecha);
 
     /**
-     * @brief Destructor. TODO: elimina punteros
+     * @brief Destructor.
      */
     virtual ~Barca();
 
     /**
-     * @brief agrega un individuo a la barca
+     * @brief agrega un individuo a la barca si la barca tiene menos de dos individuos
      * @param elIndividuo (el individuo a agregar)
      * @return dice si el individuo se pudo agregar o no
      */
     virtual bool agregarIndividuo(Individuo* elIndividuo);
 
     /**
-     * @brief mueve la barca de una orilla a otra, verifica si tiene al menos un individuo
-     * TODO: falta hacer que solo se desplace si esta el robot para manejarla
+     * @brief mueve la barca de una orilla a otra, verifica si tiene al conductor de la barca
+     * @return dice si se pudo desplazar la barca
      */
-    virtual void desplazarse();
+    virtual bool desplazarse();
 
 };
 

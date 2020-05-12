@@ -5,12 +5,13 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
 
 #include <vector>
+#include <iostream>
 #include "Individuo.h"
 #include "Orilla.h"
 #include "Barca.h"
@@ -31,7 +32,11 @@ Jugador::Jugador(vector<Individuo*> losIndividuos)
 
 Jugador::~Jugador()
 {
- // TODO: destruir puntero
+ delete orillaIzquierda;
+ orillaIzquierda = nullptr;
+
+ delete orillaDerecha;
+ orillaDerecha = nullptr;
 }
 
 void Jugador::mostrarEstadoJuego()
@@ -39,7 +44,7 @@ void Jugador::mostrarEstadoJuego()
   string lugares = "| " + orillaIzquierda->decirNombre() + "\t\t| " + orillaIzquierda->decirVecino()  + "\t\t| " +  orillaDerecha->decirVecino() + "\t\t| " + orillaDerecha->decirNombre() + "\t\t|\n";
   string posicionIndividuos = "";
 
-  for (int i = 0; i < individuos.size(); i++)
+  for(int i = 0; i < individuos.size(); i++)
   {
     if(orillaIzquierda->cantidadIndividuos() > i)
     {
@@ -50,7 +55,7 @@ void Jugador::mostrarEstadoJuego()
       posicionIndividuos += "| " + orillaIzquierda->nombreIndividuoEnPosicion(i) + "\t\t\t| ";
     }
   
-    if (orillaIzquierda->decirVecino() == "Barca ") 
+    if(orillaIzquierda->decirVecino() == "Barca ") 
     {
       if(barca->cantidadIndividuos() > i)
       {
@@ -90,15 +95,16 @@ void Jugador::mostrarEstadoJuego()
 
 void Jugador::validarPerdioGano()
 {
-  if (barca->haPerdido() || orillaIzquierda->haPerdido() || orillaDerecha->haPerdido() || alguienSeAhogo)
+  if(barca->haPerdido() || orillaIzquierda->haPerdido() || orillaDerecha->haPerdido() || alguienSeAhogo)
   {
-    cout << "HAS PERDIDO!!" << endl;
+    cout << "¡¡¡HAS PERDIDO!!!" << endl;
   }
   else
   {
-    if (orillaDerecha->cantidadIndividuos() == individuos.size())
+    if(orillaDerecha->cantidadIndividuos() == individuos.size())
     {
-      cout << "HAS GANADO" << endl;
+      cout << "***¡¡¡HAS GANADO!!!***" << endl;
+      cout << "   ¡FELICITACIONES!  " << endl;
     }
     else
     {
@@ -121,7 +127,7 @@ void Jugador::jugar()
 void Jugador::seAhogoIndividuo(string nombreIndividuo)
 {
   alguienSeAhogo = true;
-  cout << nombreIndividuo << " se ahogó" << endl;
+  cout << nombreIndividuo << " se ahogó " << endl;
 }
 
 void Jugador::moverIndividuo(Individuo* individuo)
@@ -190,14 +196,14 @@ void Jugador::imprimirOpciones()
 
 void Jugador::ejecutarAccion(string opcion)
 {
-  if (opcion == "X")
+  if(opcion == "X")
   {
     cout << "Salir del juego " << endl;
     cout << "¡SALISTE DEL JUEGO! " << endl;
   }
   else
   {
-    if (opcion == "B")
+    if(opcion == "B")
     {
       cout << "mover" << barca->decirNombre() << endl;
       bool pudoMoverse = barca->desplazarse();
@@ -220,12 +226,12 @@ void Jugador::ejecutarAccion(string opcion)
         else
         {
           if(i+1 == individuos.size())
-          cout << "La opcion ingresada no es valida" << endl;
+          {
+            cout << "La opcion ingresada no es valida!" << endl;
+          }
         }
       }
       mostrarEstadoJuego();
     }
-  }
-  
-  
+  }  
 }

@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-05
+  Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
 */
@@ -36,7 +36,7 @@ class Lugar
     Lugar(string elNombre);
 
     /**
-     * @brief Destructor. TODO: elimina punteros
+     * @brief Destructor.
      */
     virtual ~Lugar();
 
@@ -95,12 +95,6 @@ class Lugar
      * @return dice si se encuentra o no el individuo buscado  
      */
     virtual bool estaElIndividuo(Individuo* individuo);
-
-    /**
-     * @brief busca el nombre en todos sus individuos contenidos 
-     * @return el nombre de todos sus individuos 
-     */
-    virtual string mostrarIndividuosContenidos();
 
     /**
      * @brief devuelve el nombre del individuo que esta en cierta posicion
