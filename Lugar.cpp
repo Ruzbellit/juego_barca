@@ -52,12 +52,12 @@ void Lugar::borrarIndividuo(Individuo* elIndividuo)
 string Lugar::haPerdido()
 {
   string comieron = "";
-  bool estaRobot = false;
+  bool hayConductor = false;
   for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
   {
-    if(individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
+    if(individuosContenidos[cualIndividuo]->decirSiPuedeConducir() == true)
     {
-      estaRobot = true;
+      hayConductor = true;
     }
   }
 
@@ -65,7 +65,7 @@ string Lugar::haPerdido()
   {
     for(int cualIndividuoAComer = 0; cualIndividuoAComer < individuosContenidos.size(); cualIndividuoAComer++)
     {
-      if(individuosContenidos[cualIndividuo]->decirSiPuedeComerseA(individuosContenidos[cualIndividuoAComer]) == true && !estaRobot)
+      if(individuosContenidos[cualIndividuo]->decirSiPuedeComerseA(individuosContenidos[cualIndividuoAComer]) == true && !hayConductor)
       {
         comieron = individuosContenidos[cualIndividuo]->decirNombre() + " se comió a " + individuosContenidos[cualIndividuoAComer]->decirNombre();
       }

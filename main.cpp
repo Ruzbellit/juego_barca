@@ -19,7 +19,9 @@ int main()
 {
   vector<Individuo*> listaDeIndividuos;
 
-  Individuo robot("Robot ","R", true);
+  // VARIANTE NORMAL DEL JUEGO
+/*
+  Individuo robot("Robot ", "R", true);
   Individuo zorro("Zorro ", "Z", false);
   Individuo conejo("Conejo", "C", false);
   Individuo lechuga("Lechuga", "L", false);
@@ -33,7 +35,30 @@ int main()
   listaDeIndividuos.push_back(&lechuga);
 
   Jugador jugador(listaDeIndividuos);
+  jugador.jugar();
+ */
 
+  // VARIANTE ALTERNATIVA DEL JUEGO; Descomentar siguiente bloque
+  Individuo robot("Robot ", "R", true);
+  Individuo robot1("Robot1", "P", true);
+  Individuo conejo1("Conejo1", "Q", false);
+  Individuo zorro("Zorro ", "Z", false);
+  Individuo conejo("Conejo", "C", false);
+  Individuo lechuga("Lechuga", "L", false);
+
+  conejo.seComeA(&lechuga);
+  conejo1.seComeA(&lechuga);
+  zorro.seComeA(&conejo);
+  zorro.seComeA(&conejo1);
+
+  listaDeIndividuos.push_back(&robot);
+  listaDeIndividuos.push_back(&zorro);
+  listaDeIndividuos.push_back(&conejo);
+  listaDeIndividuos.push_back(&lechuga);
+  listaDeIndividuos.push_back(&conejo1);
+  listaDeIndividuos.push_back(&robot1);
+
+  Jugador jugador(listaDeIndividuos);
   jugador.jugar();
   
 }
