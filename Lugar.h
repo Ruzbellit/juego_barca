@@ -61,9 +61,9 @@ class Lugar
 
     /**
      * @brief verifica si los individuos se pueden comer entre ellos
-     * @return si se pueden comer o no los individuos entre ellos  
+     * @return si se pueden comer un vacio y si no quien se comio a quien  
      */
-    virtual bool haPerdido();
+    virtual string haPerdido();
 
     /**
      * @brief actualiza su vecino

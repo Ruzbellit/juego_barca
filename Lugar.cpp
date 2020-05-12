@@ -11,6 +11,7 @@
 */
 
 #include <vector>
+#include <string>
 #include "Individuo.h"
 #include "Lugar.h"
 
@@ -48,9 +49,9 @@ void Lugar::borrarIndividuo(Individuo* elIndividuo)
  }
 }
 
-bool Lugar::haPerdido()
+string Lugar::haPerdido()
 {
-  bool perdio = false;
+  string comieron = "";
   bool estaRobot = false;
   for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++)
   {
@@ -66,11 +67,11 @@ bool Lugar::haPerdido()
     {
       if(individuosContenidos[cualIndividuo]->decirSiPuedeComerseA(individuosContenidos[cualIndividuoAComer]) == true && !estaRobot)
       {
-        perdio = true;
+        comieron = individuosContenidos[cualIndividuo]->decirNombre() + " se comió a " + individuosContenidos[cualIndividuoAComer]->decirNombre();
       }
     }
   }
-  return perdio;
+  return comieron;
 }
 
 void Lugar::agregarVecino(Lugar* elVecino)

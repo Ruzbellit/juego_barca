@@ -1,4 +1,14 @@
-//Falta historia y comentario
+/*
+  Archivo: Main.cpp
+  Autor: Daniel Rodriguez sanchez (1927631)
+  Autor: Ruzbellit Rossy Romero Ramirez (1925456)
+  Email: daniel.rodriguez.sanchez@correounivalle.edu.co
+  Email: ruzbellit.romero@correounivalle.edu.co
+  Fecha creación: 2020-03-24
+  Fecha última modificación: 2020-05-11
+  Versión: 0.1
+  Licencia: GPL
+*/
 #include <string>
 #include "Individuo.h"
 #include "Jugador.h"

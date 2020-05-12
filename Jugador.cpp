@@ -95,9 +95,11 @@ void Jugador::mostrarEstadoJuego()
 
 void Jugador::validarPerdioGano()
 {
-  if(barca->haPerdido() || orillaIzquierda->haPerdido() || orillaDerecha->haPerdido() || alguienSeAhogo)
+  string perdio = barca->haPerdido() + orillaIzquierda->haPerdido() + orillaDerecha->haPerdido();
+  if((perdio != "") || alguienSeAhogo)
   {
     cout << "¡¡¡HAS PERDIDO!!!" << endl;
+    cout << perdio << endl;
   }
   else
   {
