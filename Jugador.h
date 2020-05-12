@@ -10,6 +10,19 @@
   Licencia: GPL
 */
 
+/*
+ Clase: Individuo
+ Atributos: individuos, orilla izquierda, orilla derecha, barca, alguien ahogado
+ Funcionalidades: 
+ - Puede imprimir en pantalla el estado del juego para cada movimiento llama a validar si perdio gano
+ - Puede validar si ha perdido o si ha ganado y si no es ninguna continua jugando
+ - Puede inicializar el juego añadiendo todos los individuos a la izquierda, muestra las opciones de control y lee el teclado 
+ - Puede avisar al usuario cuando un individuo se ha ahogado
+ - Puede mover el individuo al lado mas cercano
+ - Puede preguntar al usuario que desea hacer, lee la opcion ingresada e invoca a ejecutar accion pasandole la opcion 
+ - Puede ejecutar la opcion ingresada y muestra el estado del juego
+ Relaciones: ninguno
+*/
 
 #ifndef HH_JUGADOR
 #define HH_JUGADOR
@@ -46,8 +59,7 @@ class Jugador
     virtual ~Jugador();
 
     /**
-     * @brief imprime en pantalla el estado del juego para cada movimiento y verifica si 
-     * ha perdido, ha ganado o continua jugando 
+     * @brief imprime en pantalla el estado del juego para cada movimiento llama a validar si perdio gano
      */
     virtual void mostrarEstadoJuego();
 

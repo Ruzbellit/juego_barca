@@ -10,6 +10,22 @@
   Licencia: GPL
 */
 
+/*
+ Clase: Lugar
+ Atributos: nombre, individuos contenidos, vecino
+ Funcionalidades: 
+ - Puede decir el nombre que se asigno al lugar
+ - Puede agregar un individuo al lugar 
+ - Puede verificar que el individuo esta en el lugar y lo borra
+ - Puede verificar si los individuos se pueden comer entre ellos
+ - Puede actualizar su vecino
+ - Puede decir el nombre de su vecino
+ - Puede buscar cuantos individuos hay en el lugar  
+ - Puede mostrar su vecino
+ - Puede buscar si el individuo esta en ese lugar
+ - Puede devolver el nombre del individuo que esta en cierta posicion
+ Relaciones: conoce individuos Contenidos
+*/
 
 #ifndef HH_LUGAR
 #define HH_LUGAR

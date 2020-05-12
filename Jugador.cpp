@@ -128,7 +128,7 @@ void Jugador::jugar()
 
 void Jugador::seAhogoIndividuo(string nombreIndividuo)
 {
-  alguienAhogado = nombreIndividuo + "se ahogó";
+  alguienAhogado = nombreIndividuo + " se ahogó";
 }
 
 void Jugador::moverIndividuo(Individuo* individuo)

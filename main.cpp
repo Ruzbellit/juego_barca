@@ -8,6 +8,14 @@
   Fecha última modificación: 2020-05-11
   Versión: 0.1
   Licencia: GPL
+
+  El juego consiste en lo siguiente: hay un robot que debe transportar un zorro, un conejo y
+  una lechuga desde un lado del río hasta la otra orilla, usando una barca. En la barca solo
+  cabe uno de los tres individuos, además del robot. El problema es que si el robot deja
+  solos al zorro y el conejo, el zorro se comerá el conejo. Y si deja solos al conejo y la
+  lechuga, el conejo se comerá la lechuga. El jugador debe controlar que órdenes dar, para
+  lograr que el robot transporte los tres individuos a la otra orilla, sanos y salvos.
+
 */
 #include <string>
 #include "Individuo.h"
@@ -20,7 +28,7 @@ int main()
   vector<Individuo*> listaDeIndividuos;
 
   // VARIANTE NORMAL DEL JUEGO
-/*
+
   Individuo robot("Robot ", "R", true);
   Individuo zorro("Zorro ", "Z", false);
   Individuo conejo("Conejo", "C", false);
@@ -36,29 +44,29 @@ int main()
 
   Jugador jugador(listaDeIndividuos);
   jugador.jugar();
- */
+
 
   // VARIANTE ALTERNATIVA DEL JUEGO; Descomentar siguiente bloque
-  Individuo robot("Robot ", "R", true);
-  Individuo robot1("Robot1", "P", true);
-  Individuo conejo1("Conejo1", "Q", false);
-  Individuo zorro("Zorro ", "Z", false);
-  Individuo conejo("Conejo", "C", false);
-  Individuo lechuga("Lechuga", "L", false);
+  // Individuo robot("Robot ", "R", true);
+  // Individuo robot1("Robot1", "P", true);
+  // Individuo conejo1("Conejo1", "Q", false);
+  // Individuo zorro("Zorro ", "Z", false);
+  // Individuo conejo("Conejo", "C", false);
+  // Individuo lechuga("Lechuga", "L", false);
 
-  conejo.seComeA(&lechuga);
-  conejo1.seComeA(&lechuga);
-  zorro.seComeA(&conejo);
-  zorro.seComeA(&conejo1);
+  // conejo.seComeA(&lechuga);
+  // conejo1.seComeA(&lechuga);
+  // zorro.seComeA(&conejo);
+  // zorro.seComeA(&conejo1);
 
-  listaDeIndividuos.push_back(&robot);
-  listaDeIndividuos.push_back(&zorro);
-  listaDeIndividuos.push_back(&conejo);
-  listaDeIndividuos.push_back(&lechuga);
-  listaDeIndividuos.push_back(&conejo1);
-  listaDeIndividuos.push_back(&robot1);
+  // listaDeIndividuos.push_back(&robot);
+  // listaDeIndividuos.push_back(&zorro);
+  // listaDeIndividuos.push_back(&conejo);
+  // listaDeIndividuos.push_back(&lechuga);
+  // listaDeIndividuos.push_back(&conejo1);
+  // listaDeIndividuos.push_back(&robot1);
 
-  Jugador jugador(listaDeIndividuos);
-  jugador.jugar();
+  // Jugador jugador(listaDeIndividuos);
+  // jugador.jugar();
   
 }

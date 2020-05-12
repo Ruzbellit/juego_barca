@@ -10,6 +10,15 @@
   Licencia: GPL
 */
 
+/*
+ Clase: Barca
+ Atributos: orilla Izquierda, orilla Derecha
+ Funcionalidades: 
+ - Puede agrega un individuo a la barca si la barca tiene menos de dos individuos
+ - Puede mueve la barca de una orilla a otra, verifica si tiene al conductor de la barca
+ Relaciones: es parecido a un lugar y conoce a orilla Izquierda y orilla Derecha
+  
+*/
 
 
 #ifndef HH_BARCA

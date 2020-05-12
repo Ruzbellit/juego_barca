@@ -10,6 +10,14 @@
   Licencia: GPL
 */
 
+/*
+ Clase: Orilla
+ Atributos: hereda de Lugar
+ Funcionalidades: 
+ - Hereda las funcionalidades de lugar 
+ Relaciones: Es un Lugar
+*/
+
 
 #ifndef HH_ORILLA
 #define HH_ORILLA

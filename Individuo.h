@@ -10,6 +10,17 @@
   Licencia: GPL
 */
 
+/*
+ Clase: Individuo
+ Atributos: nombre, identificador, puede conducir, individuos comestibles
+ Funcionalidades: 
+ - Puede agrega un individuo especifico al listado de individuos que se puede comer
+ - Puede decir el nombre que tiene el individuo
+ - Puede preguntar si puede comerse a cierto individuo
+ - Puede decir el identificador que tiene el individuo
+ - verifica si el individuo puede conducir la barca
+ Relaciones: ninguno
+*/
 
 #ifndef HH_INDIVIDUO
 #define HH_INDIVIDUO
