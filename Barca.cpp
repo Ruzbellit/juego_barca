@@ -65,7 +65,7 @@ bool Barca::desplazarse()
       vecino = orillaDerecha;
       orillaDerecha->agregarVecino(this);
       orillaIzquierda->agregarVecino(nullptr);
-      respuesta = false;
+      respuesta = true;
     }
   }
   return respuesta;

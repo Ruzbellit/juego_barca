@@ -200,14 +200,12 @@ void Jugador::ejecutarAccion(string opcion)
     if (opcion == "B")
     {
       cout << "mover" << barca->decirNombre() << endl;
-      if(barca->desplazarse() == true)
-      {
-        barca->desplazarse();
-      }
-      else
+      bool pudoMoverse = barca->desplazarse();
+      if(!pudoMoverse)
       {
         cout << "No esta el robot para manejar la Barca!" << endl;
       }
+      mostrarEstadoJuego();
     }
     else
     {
@@ -225,7 +223,9 @@ void Jugador::ejecutarAccion(string opcion)
           cout << "La opcion ingresada no es valida" << endl;
         }
       }
+      mostrarEstadoJuego();
     }
-    mostrarEstadoJuego();
   }
+  
+  
 }
