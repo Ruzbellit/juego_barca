@@ -18,13 +18,29 @@
 
 */
 #include <string>
+#include <iostream>
 #include "Individuo.h"
 #include "Jugador.h"
 
 using namespace std;
 
+
+
 int main() 
 {
+    string opciones =
+      "===========================================\n"
+      "Las órdenes que puede dar el jugador son (usando el teclado): \n"
+      "B la Barca se mueve a la otra orilla\n"
+      "R el Robot salta de/a la barca\n"
+      "Z el Zorro salta de/a la barca\n"
+      "C el Conejo salta de/a la barca\n"
+      "L la Lechuga salta de/a la barca\n"
+      "X salir del juego\n"
+      "===========================================\n\n";
+    cout << opciones << endl;
+
+
   vector<Individuo*> listaDeIndividuos;
 
   // VARIANTE NORMAL DEL JUEGO

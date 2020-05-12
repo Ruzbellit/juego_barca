@@ -16,7 +16,7 @@
  Funcionalidades: 
  - Puede imprimir en pantalla el estado del juego para cada movimiento llama a validar si perdio gano
  - Puede validar si ha perdido o si ha ganado y si no es ninguna continua jugando
- - Puede inicializar el juego añadiendo todos los individuos a la izquierda, muestra las opciones de control y lee el teclado 
+ - Puede inicializar el juego añadiendo todos los individuos a la izquierda y lee el teclado 
  - Puede avisar al usuario cuando un individuo se ha ahogado
  - Puede mover el individuo al lado mas cercano
  - Puede preguntar al usuario que desea hacer, lee la opcion ingresada e invoca a ejecutar accion pasandole la opcion 
@@ -69,8 +69,7 @@ class Jugador
     virtual void validarPerdioGano();
 
     /**
-     * @brief inicializa el juego añadiendo todos los individuos a la izquierda, 
-     * muestra las opciones de control y lee el teclado 
+     * @brief inicializa el juego añadiendo todos los individuos a la izquierda y lee el teclado 
      */
     virtual void jugar();
 
@@ -91,11 +90,6 @@ class Jugador
      * e invoca a ejecutar accion pasandole la opcion 
      */
     virtual void leerTeclado();
-
-    /**
-     * @brief muestra en pantalla las instrucciones del juego
-     */
-    virtual void imprimirOpciones();
 
      /**
       * @brief ejecuta la opcion ingresada y muestra el estado del juego 
