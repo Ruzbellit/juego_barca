@@ -5,7 +5,7 @@
   Email: daniel.rodriguez.sanchez@correounivalle.edu.co
   Email: ruzbellit.romero@correounivalle.edu.co
   Fecha creación: 2020-03-24
-  Fecha última modificación: 2020-05-11
+  Fecha última modificación: 2020-05-12
   Versión: 0.1
   Licencia: GPL
 */
@@ -95,11 +95,16 @@ void Jugador::mostrarEstadoJuego()
 
 void Jugador::validarPerdioGano()
 {
-  string perdio = barca->haPerdido() + orillaIzquierda->haPerdido() + orillaDerecha->haPerdido() + alguienAhogado;
-  if(perdio != "")
+  string perdio = barca->haPerdido() + orillaIzquierda->haPerdido() + orillaDerecha->haPerdido();
+  if(perdio != "" )
   {
     cout << "¡¡¡HAS PERDIDO!!!" << endl;
     cout << perdio << endl;
+  } 
+  else if(alguienAhogado != "")
+  {
+    cout << "¡¡¡HAS PERDIDO!!!" << endl;
+    cout << alguienAhogado << endl;
   }
   else
   {
