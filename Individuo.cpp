@@ -14,10 +14,11 @@
 #include <vector>
 #include "Individuo.h"
 
-Individuo::Individuo(string nombreIndividuo, string elIdentificador)
+Individuo::Individuo(string nombreIndividuo, string elIdentificador, bool siPuedeConducir)
 {
   nombre = nombreIndividuo;
   identificador = elIdentificador;
+  puedeConducir = siPuedeConducir;
 }
 
 Individuo::~Individuo()
@@ -51,4 +52,9 @@ bool Individuo::decirSiPuedeComerseA(Individuo* individuo)
 string Individuo::cualEsIdentificador()
 {
   return identificador;
+}
+
+bool Individuo::decirSiPuedeConducir()
+{
+  return puedeConducir;
 }

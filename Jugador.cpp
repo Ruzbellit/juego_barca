@@ -27,7 +27,7 @@ Jugador::Jugador(vector<Individuo*> losIndividuos)
   barca = new Barca("Barca ", orillaIzquierda, orillaDerecha);
   orillaIzquierda->agregarVecino(barca);
   barca->agregarVecino(orillaIzquierda);
-  alguienSeAhogo = false;
+  alguienAhogado = "";
 }
 
 Jugador::~Jugador()
@@ -95,8 +95,8 @@ void Jugador::mostrarEstadoJuego()
 
 void Jugador::validarPerdioGano()
 {
-  string perdio = barca->haPerdido() + orillaIzquierda->haPerdido() + orillaDerecha->haPerdido();
-  if((perdio != "") || alguienSeAhogo)
+  string perdio = barca->haPerdido() + orillaIzquierda->haPerdido() + orillaDerecha->haPerdido() + alguienAhogado;
+  if(perdio != "")
   {
     cout << "¡¡¡HAS PERDIDO!!!" << endl;
     cout << perdio << endl;
@@ -128,8 +128,7 @@ void Jugador::jugar()
 
 void Jugador::seAhogoIndividuo(string nombreIndividuo)
 {
-  alguienSeAhogo = true;
-  cout << nombreIndividuo << " se ahogó " << endl;
+  alguienAhogado = nombreIndividuo + "se ahogó";
 }
 
 void Jugador::moverIndividuo(Individuo* individuo)
@@ -211,7 +210,7 @@ void Jugador::ejecutarAccion(string opcion)
       bool pudoMoverse = barca->desplazarse();
       if(!pudoMoverse)
       {
-        cout << "No esta el robot para manejar la Barca!" << endl;
+        cout << "No hay conductor para la Barca!" << endl;
       }
       mostrarEstadoJuego();
     }

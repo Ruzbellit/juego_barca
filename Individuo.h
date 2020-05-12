@@ -24,6 +24,7 @@ class Individuo
   protected:
     string nombre;
     string identificador;
+    bool puedeConducir;
     vector<Individuo*> individuosComestibles;
 
   public:
@@ -33,7 +34,7 @@ class Individuo
      * @param nombreIndividuo (el nombre del individuo)
      * @param elIdentificador (letra indicadora del individuo)
      */
-    Individuo(string nombreIndividuo, string elIdentificador);
+    Individuo(string nombreIndividuo, string elIdentificador, bool siPuedeCondicir);
 
     /**
      * @brief Destructor.
@@ -64,7 +65,13 @@ class Individuo
      * @return identificador del individuo
      */
     virtual string cualEsIdentificador();
-    
+
+    /**
+     * @brief verifica si el individuo puede conducir la barca
+     * @return dice si puede o no conducir la barca
+     */
+    virtual bool decirSiPuedeConducir();
+
 };
 #else
 class Individuo; 

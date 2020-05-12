@@ -41,17 +41,17 @@ bool  Barca::agregarIndividuo(Individuo* elIndividuo)
 
 bool Barca::desplazarse()
 {
-  bool estaRobot = false;
+  bool hayConductor = false;
   for(int cualIndividuo = 0; cualIndividuo < individuosContenidos.size(); cualIndividuo++ )
   {
-    if(individuosContenidos[cualIndividuo]->cualEsIdentificador() == "R")
+    if(individuosContenidos[cualIndividuo]->decirSiPuedeConducir() == true)
     {
-      estaRobot = true;
+      hayConductor = true;
     }
   }
 
   bool respuesta;
-  if(estaRobot == true)
+  if(hayConductor == true)
   {
     if(decirVecino() == orillaDerecha->decirNombre())
     {

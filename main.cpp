@@ -19,10 +19,10 @@ int main()
 {
   vector<Individuo*> listaDeIndividuos;
 
-  Individuo robot("Robot ","R");
-  Individuo zorro("Zorro ", "Z");
-  Individuo conejo("Conejo", "C");
-  Individuo lechuga("Lechuga", "L");
+  Individuo robot("Robot ","R", true);
+  Individuo zorro("Zorro ", "Z", false);
+  Individuo conejo("Conejo", "C", false);
+  Individuo lechuga("Lechuga", "L", false);
 
   conejo.seComeA(&lechuga);
   zorro.seComeA(&conejo);

@@ -30,7 +30,7 @@ class Jugador
     Orilla* orillaIzquierda;
     Orilla* orillaDerecha;
     Barca* barca;
-    bool alguienSeAhogo;
+    string alguienAhogado;
 
   public:
 
